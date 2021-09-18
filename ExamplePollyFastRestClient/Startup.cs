@@ -1,3 +1,4 @@
+using ExamplePollyFastRestClient.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,6 +31,8 @@ namespace ExamplePollyFastRestClient
                 client.BaseAddress = new Uri("https://api.genderize.io/");
                 client.DefaultRequestHeaders.Add("User-Agent", "PollyFastHttpClient");
             });
+
+            services.AddScoped<IGenderService, GenderService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

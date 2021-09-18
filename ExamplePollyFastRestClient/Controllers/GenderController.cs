@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using ExamplePollyFastRestClient.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,16 +12,17 @@ namespace ExamplePollyFastRestClient.Controllers
     [ApiController]
     public class GenderController : ControllerBase
     {
-        public GenderController()
-        {
+        private readonly IGenderService _genderService;
 
+        public GenderController(IGenderService genderService)
+        {
+            _genderService = genderService;
         }
 
         [HttpGet("predict/{name}")]
         public IActionResult Predict(string name)
         {
-
-            return Ok(name);
+            return Ok(_genderService.Predict(name));
         }
     }
 }
