@@ -27,3 +27,7 @@ C:\Users\Administrator\Desktop\PollyFastRestClient\ExamplePollyFastRestClient\ob
 C:\Users\Administrator\Desktop\PollyFastRestClient\ExamplePollyFastRestClient\obj\Debug\net5.0\ref\ExamplePollyFastRestClient.dll
 C:\Users\Administrator\Desktop\PollyFastRestClient\ExamplePollyFastRestClient\obj\Debug\net5.0\ExamplePollyFastRestClient.pdb
 C:\Users\Administrator\Desktop\PollyFastRestClient\ExamplePollyFastRestClient\obj\Debug\net5.0\ExamplePollyFastRestClient.genruntimeconfig.cache
+C:\Users\Administrator\Desktop\PollyFastRestClient\ExamplePollyFastRestClient\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\PollyFastRestClient\ExamplePollyFastRestClient\bin\Debug\net5.0\Microsoft.Extensions.Http.Polly.dll
+C:\Users\Administrator\Desktop\PollyFastRestClient\ExamplePollyFastRestClient\bin\Debug\net5.0\Polly.dll
+C:\Users\Administrator\Desktop\PollyFastRestClient\ExamplePollyFastRestClient\bin\Debug\net5.0\Polly.Extensions.Http.dll

@@ -8,9 +8,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Polly;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ExamplePollyFastRestClient
@@ -29,12 +31,15 @@ namespace ExamplePollyFastRestClient
             services.AddHttpClient("GenderPrediction", client =>
             {
                 client.BaseAddress = new Uri("https://api.genderize.io/");
+                client.DefaultRequestHeaders.Add("Accept", "application/json");
                 client.DefaultRequestHeaders.Add("User-Agent", "PollyFastHttpClient");
-            });
+            }).AddTransientHttpErrorPolicy(p =>
+            p.WaitAndRetryAsync(3, _ => TimeSpan.FromMilliseconds(300)));
 
             services.AddScoped<IGenderService, GenderService>();
 
-            services.AddControllers();
+            services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ExamplePollyFastRestClient", Version = "v1" });
