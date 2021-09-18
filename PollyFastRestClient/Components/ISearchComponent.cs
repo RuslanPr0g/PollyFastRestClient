@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace PollyFastRestClient.Components
 {
     public interface ISearchComponent
     {
-        List<T> Search<T>();
+        Task<string> Search(string data);
     }
 }
